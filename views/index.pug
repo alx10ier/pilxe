@@ -19,17 +19,17 @@ html
                         .navbar-brand.col-1.hidden-for-mobile.invisible
                             span Pilxe
                         .navbar-menu.col-4.col-6-mobile.columns.mobile
-                            .navbar-item: a Home
-                            .navbar-item: a Post
-                            .navbar-item: a About
+                          .navbar-item: a(href='/') Home
+                          .navbar-item: a(href='/posts/all') Post
+                          .navbar-item: a(href='/about') About
         else
             nav.navbar.mobile.sticky-top
                 .navbar-brand.col-1.hidden-for-mobile
                     span Pilxe
                 .navbar-menu.navbar-menu-wide.col-4.col-6-mobile.columns.mobile
-                    .navbar-item: a Home
-                    .navbar-item: a Post
-                    .navbar-item: a About
+                  .navbar-item: a(href='/') Home
+                  .navbar-item: a(href='/posts/all') Post
+                  .navbar-item: a(href='/about') About
         .columns.centered
             main.col-6.col-5-tablet.col-4-desktop
                 if posts.length
