@@ -71,7 +71,7 @@ module.exports = {
 
     let post = await Post.findById(id).populate('category')
     const oldCategory = post.category
-    if (oldCategory !== category) { // remove the post from old category
+    if (!oldCategory.equals(category)) { // remove the post from old category
       oldCategory.posts = oldCategory.posts.filter(x => x._id.toString() !== id)
     }
     await oldCategory.save()
