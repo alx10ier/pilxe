@@ -1,0 +1,10 @@
+@mixin icon($url, $width:32px, $height:32px) {
+  background: url($url);
+  background-size: contain;
+  width: $width;
+  height: $height;
+}
+
+.bunny-icon {
+  @include icon('/images/bunny.png');
+}

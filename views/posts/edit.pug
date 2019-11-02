@@ -1,0 +1,81 @@
+extends ../layout
+
+block vars
+    - var title = 'New Post'
+
+append stylesheets
+    link(rel='stylesheet' href='https://unpkg.com/codemirror@5.46.0/lib/codemirror.css')
+    link(rel='stylesheet' href='https://unpkg.com/codemirror@5.46.0/theme/neo.css')
+    link(rel='stylesheet' href='https://unpkg.com/highlightjs@9.12.0/styles/atom-one-light.css')
+    link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous")
+
+append javascripts
+    script(src='https://unpkg.com/codemirror@5.46.0/lib/codemirror.js')
+    script(src='https://unpkg.com/codemirror@5.46.0/mode/gfm/gfm.js')
+    script(src='https://unpkg.com/codemirror@5.46.0/mode/markdown/markdown.js')
+    script(src='https://unpkg.com/codemirror@5.46.0/mode/javascript/javascript.js')
+    script(src='https://unpkg.com/codemirror@5.46.0/mode/css/css.js')
+    script(src='https://unpkg.com/codemirror@5.46.0/addon/edit/closebrackets.js')
+    script(src='https://unpkg.com/codemirror@5.46.0/addon/selection/active-line.js')
+    script(src='https://unpkg.com/codemirror@5.46.0/addon/mode/overlay.js')
+    script(src='https://unpkg.com/marked@0.6.2/lib/marked.js')
+    script(src='https://unpkg.com/highlightjs@9.12.0/highlight.pack.js')
+    script(src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous")
+    script(src='/javascripts/editor.js')
+
+block content
+    input(type='hidden' name='predefined' value= post ? post.source : '')
+    input(type='hidden' name='id' value= post ? post.id : '')
+    .edit-main.columns
+        .toolbar
+            .editor-icon
+                i.far.fa-file-code
+            .preview-icon
+                i.far.fa-file-alt
+            .config-icon
+                i.fas.fa-cog
+        .edit-panel.columns
+            .editor.col-3.col-6-mobile
+            .preview.post.col-3.hidden-for-mobile
+                h1.title
+                .information
+                    .time
+                    .category: a
+                .content
+        form(autocomplete='off').form.config
+            .error(hidden)
+            fieldset
+                legend 设置
+                .form-item
+                    label 名称
+                    input.custom(type='text' name='title' value= post ? post.title : '')
+                .form-item
+                    label 作者
+                    .default.auto-author=user.username
+                    input(type='hidden' name='author' value= post ? post.author.username : user.username)
+                .form-item
+                    label 时间
+                        .switch
+                            input(type='checkbox' name='is-custom-time' hidden)
+                            span.slider
+                    .default.auto-time= post ? post.time : ''
+                    input.custom(type='text' name='time' value= post ? post.time : '' hidden)
+                .form-item.category
+                    label 类别
+                        if categories.length
+                            .switch
+                                input(type='checkbox' name='is-new-category' hidden)
+                                span.slider
+                    if categories.length
+                        input.custom(type='text' name='newCategory' hidden)
+                    else
+                        input.custom(type='text' name='newCategory')
+                    if categories.length
+                        .default.dropdown
+                            input(type='hidden' name='category' value= post ? post.category.name : '')
+                            .placeholder= post ? post.category.name : '未分类'
+                            .dropdown-menu
+                                each category in categories
+                                    .dropdown-item=category.name
+                .form-item
+                    input(type='submit' value='⇨ 提交')

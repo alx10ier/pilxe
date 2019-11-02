@@ -1,0 +1,14 @@
+doctype html
+html
+    head
+        title= title
+        meta(name='viewport' content='width=device-width')
+        block stylesheets
+            link(rel='stylesheet' href='/stylesheets/style.css')
+        block javascripts
+    body
+        .curtain(style='padding: 2rem 5rem')
+            h1= error.name
+            h1= error.message
+            h2= error.status
+            pre(style='margin-top:2rem; white-space: pre-wrap')= error.stack

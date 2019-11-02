@@ -1,0 +1,104 @@
+@import "../variables";
+
+.form {
+  fieldset {
+    padding: 1rem 3rem;
+    border: 1px solid $dark;
+  }
+  legend {
+    padding: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  .form-item {
+    margin-bottom: 1rem;
+    label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.3rem;
+    }
+    input {
+      outline: none;
+      color: $dark;
+      font-size: 0.9rem;
+      font-family: "Raleway", "PingFang SC", sans-serif;
+    }
+    input[type='submit'] {
+      display: block;
+      //margin: 0 auto;
+    }
+    .switch {
+      margin-left: 1rem;
+    }
+  }
+}
+
+.switch {
+  display: inline-block;
+  position: relative;
+  width: 2rem;
+  height: 1.2rem;
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $athens-grey;
+    -webkit-transition: .4s;
+    transition: .4s;
+    //border-radius: 10rem;
+    border-radius: 3px;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 0.8rem;
+    width: 0.8rem;
+    left: 0.2rem;
+    bottom: 0.2rem;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    //border-radius: 50%;
+    border-radius: 3px;
+  }
+
+  input:checked + .slider {
+    background-color: $orange;
+  }
+
+  input:checked + .slider:before {
+    -webkit-transform: translateX(0.8rem);
+    -ms-transform: translateX(0.8rem);
+    transform: translateX(0.8rem);
+  }
+}
+
+.dropdown {
+  user-select: none; /* supported by Chrome and Opera */
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  box-shadow: 0 0 2px rgb(204, 204, 204);
+  transition: all .5s ease;
+  outline: none;
+  border-radius: 5px;
+  background: white;
+  font-size: 0.9rem;
+  .placeholder, .dropdown-item {
+    line-height: 2rem;
+    padding: 0 0.5rem;
+    cursor: pointer;
+    background: white;
+    border-radius: 5px;
+  }
+  .dropdown-menu {
+    display: none;
+  }
+  .dropdown-item:hover {
+    background: $athens-grey;
+  }
+}

@@ -1,0 +1,20 @@
+doctype html
+html
+    block vars
+    head
+        title= title
+        meta(name='viewport' content='width=device-width')
+        block stylesheets
+            link(rel='stylesheet' href='/stylesheets/style.css')
+    body
+        header.header
+          nav.navbar.columns.mobile
+                // todo 在 mobile size 的时候缩小菜单栏，显示brand
+                .navbar-brand.col-2.col-3-tablet.hidden-for-mobile
+                    span.logo Pilxe
+                .navbar-menu.col-4.col-3-tablet.col-6-mobile.align-right.centered-for-mobile.columns.mobile
+                    .navbar-item: a Home
+                    .navbar-item: a Post
+                    .navbar-item: a About
+        block content
+        block javascripts

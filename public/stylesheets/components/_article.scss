@@ -1,0 +1,163 @@
+@import "../variables";
+
+.post {
+  position: relative;
+  line-height: 2rem;
+  font-family: "Raleway", 'PingFang SC', sans-serif;
+  pre {
+    border-radius: 5px;
+    background: $athens-grey;
+    padding: 1rem 0.8rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    font-family: 'Ubuntu Mono', 'PingFang SC', monospace;
+    line-height: 1.5rem;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -o-pre-wrap;
+    code {
+      font-family: inherit;
+      white-space: pre-wrap;
+      white-space: -moz-pre-wrap;
+      white-space: -o-pre-wrap;
+    }
+  }
+
+  p {
+    margin-bottom: 1.5rem;
+  }
+
+  blockquote {
+    padding-left: 1.5rem;
+    border-left: 5px solid $tiffany-blue;
+    font-style: italic;
+  }
+
+  ul {
+    margin-bottom: 1rem;
+    li::before {
+      position: absolute;
+      left: -1rem;
+      content: "-";
+      color: $orange;
+      font-weight: 700;
+      margin-right: 0.5rem;
+      line-height: 2rem;
+    }
+  }
+
+  ol {
+    counter-reset: item;
+    margin-bottom: 1rem;
+    li::before {
+      content: counter(item) ".";
+      counter-increment: item;
+      color: $orange;
+      font-weight: 700;
+      margin-right: 0.5rem;
+      font-family: "Ubuntu Mono", monospace;
+    }
+  }
+
+  li {
+    position: relative;
+    margin-left: 2rem;
+    list-style-type: none;
+    list-style-position: inside;
+    margin-bottom: 0.25rem;
+    input {
+      margin-right: 0.5rem;
+    }
+  }
+
+  .task-list-item::before {
+    content: '';
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    padding: 1.5rem 0;
+    font-family: "Arvo", 'PingFang SC', cursive;
+    font-weight: bold;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+    position: relative;
+    &::before{
+      content: "＊";
+      color: $orange;
+      font-weight: 700;
+      position: absolute;
+      top: 0;
+      left: -1.5rem;
+    }
+  }
+
+  h3 {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  .information {
+    margin-bottom: 5rem;
+  }
+
+  .information > * {
+    display: inline-block;
+    line-height: 1rem;
+    font-family: "Ubuntu Mono", monospace;
+  }
+
+  .time {
+    padding-right: 1rem;
+    margin-right: 1rem;
+    border-right: $orange-border;
+  }
+  .edit-icon {
+    position: absolute;
+    right: 0;
+    top: 1.5rem;
+    padding: 0 1rem;
+    border-radius: 5px;
+    background: $athens-grey;
+  }
+}
+
+.post-previews {
+  > * {
+    padding: 3rem 0;
+  }
+  > *:not(:last-child) {
+    border-bottom: 2px solid $athens-grey;
+  }
+  > .post .information {
+    margin-bottom: 2rem;
+  }
+  > .post .continue a {
+    font-weight: bold;
+    color: $jade;
+    font-size: 0.9rem;
+    i {
+      margin-left: 0.5rem;
+    }
+  }
+}
+
+.post-tiles {
+  display: flex;
+  flex-wrap: wrap;
+  > * {
+    max-width: 25%;
+    padding: 1rem 2rem;
+    margin: 2rem;
+    max-height: 20rem;
+    border: 1px solid crimson;
+  }
+  .post-tile {
+
+  }
+}

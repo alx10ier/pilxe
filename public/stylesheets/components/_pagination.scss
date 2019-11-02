@@ -1,0 +1,15 @@
+.pagination {
+  padding: 2rem 0;
+  font-family: "Ubuntu Mono", monospace;
+  display: flex;
+  a {
+    padding: 0 1rem;
+    cursor: pointer;
+  }
+  .arrow {
+    font-weight: bold;
+  }
+  .active {
+    font-weight: bold;
+  }
+}

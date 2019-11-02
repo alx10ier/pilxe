@@ -1,0 +1,67 @@
+@import "../variables";
+
+.navbar {
+  @extend .columns;
+  width: 100%;
+  padding: 0.5rem 3rem;
+  border-bottom: 0 solid $sand;
+  .navbar-brand {
+    @extend .columns;
+    align-items: center;
+    font-family: "Poiret One", 'PingFang SC', cursive;
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-shadow: 0 0 5px #d3d3d3;
+    }
+  }
+  .navbar-menu {
+    @extend .columns;
+    align-items: center;
+    justify-content: center;
+    .navbar-item {
+      font-weight: bold;
+      display: inline-block;
+      padding: 0 1rem;
+    }
+  }
+  .navbar-menu-wide {
+    .navbar-item {
+      padding: 0 2rem;
+      &:not(:first-child) {
+        border-left: 1px solid $orange;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .navbar {
+    padding: 0.5rem 0;
+  }
+}
+
+.curtain .navbar, .navbar.sticky-top {
+  height: 4rem;
+  transition: all 0.3s ease;
+  .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-shadow: 0 0 5px #d3d3d3;
+    transition: all 0.3s ease;
+  }
+  .navbar-item {
+    transition: all 0.3s ease;
+  }
+}
+
+.navbar.fixed-top, .navbar.sticky-top {
+  background-color: white;
+  border-bottom: 2px solid $sand;
+  z-index: 1;
+}
+
+.navbar.sticky-top {
+  position: fixed;
+  top: 0;
+}

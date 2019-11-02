@@ -1,0 +1,54 @@
+@import "../variables";
+
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.centered-vertical {
+  display: flex;
+  justify-content: center;
+}
+
+.align-right {
+  justify-content: flex-end !important;
+}
+
+@media screen and (max-width: 767px) {
+  .hidden-for-mobile {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 959px) {
+  .hidden-besides-desktop {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .centered-for-mobile {
+    display: flex;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+}
+
+
+.invisible {
+  opacity: 0;
+}
+
+.fixed-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.error {
+  color: $flame;
+  background-color: $athens-grey;
+  padding: 0.5rem 1rem;
+  border-radius: 3px;
+}

@@ -1,0 +1,42 @@
+@media screen and (min-width: 768px) {
+  .columns:not(.desktop) {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.mobile {
+  display: flex;
+  flex-direction: row;
+}
+
+
+@for $i from 1 through 6 {
+  .col-#{$i} {
+    width: percentage($i * 16.67 / 100);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  @for $i from 1 through 6 {
+    .col-#{$i}-mobile {
+      width: percentage($i * 16.67 / 100);
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  @for $i from 1 through 6 {
+    .col-#{$i}-tablet {
+      width: percentage($i * 16.67 / 100);
+    }
+  }
+}
+
+@media screen and (min-width: 960px) {
+  @for $i from 1 through 6 {
+    .col-#{$i}-desktop {
+      width: percentage($i * 16.67 / 100);
+    }
+  }
+}

@@ -1,0 +1,50 @@
+@import "../variables";
+
+html,
+body {
+  height: 100%;
+  color: $dark;
+  font-size: 16px;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family: "Raleway", 'PingFang SC', sans-serif;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+a {
+  color: $astronaut;
+  transition: color 0.3s ease;
+  text-decoration: none;
+  cursor: pointer;
+  &:hover {
+    color: $orange;
+  }
+}
+
+main {
+  padding: 4rem 2rem;
+}

@@ -1,0 +1,25 @@
+extends ../layout
+
+block vars
+    - var title = '新用户注册'
+
+block content 
+  .columns.centered
+          main.col-6.col-4-tablet.col-3-desktop
+              if error
+                  each msg in error
+                      .error=msg
+              form.form(action='/users' method='post' autocomplete='off')
+                  fieldset
+                      legend 登记表
+                      .form-item
+                          label(for='username') 用户名
+                          input(name='username' id='username')
+                      .form-item
+                          label(for='email') 邮箱
+                          input(type='email' name='email' id='email')
+                      .form-item
+                          label(for='password') 密码
+                          input(type='password' name='password' id='password' autocomplete="new-password")
+                      .form-item
+                          input(type='submit' value='提交')
