@@ -4,6 +4,9 @@
   position: relative;
   line-height: 2rem;
   font-family: "Raleway", 'PingFang SC', sans-serif;
+  img {
+    max-height: 500px;
+  }
   pre {
     border-radius: 5px;
     background: $athens-grey;
