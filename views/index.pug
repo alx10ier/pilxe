@@ -20,15 +20,19 @@ html
                             span Aki
                         .navbar-menu.col-4.col-6-mobile.columns.mobile
                           .navbar-item: a(href='/') Home
-                          .navbar-item: a(href='/posts/all') Post
+                          .navbar-item: a(href='/posts/') Projects
                           .navbar-item: a(href='/about') About
+                .scroll
+                  .chevron
+                  .chevron
+                  .chevron
         else
             nav.navbar.mobile.sticky-top
                 .navbar-brand.col-1.hidden-for-mobile
                     span Aki
                 .navbar-menu.navbar-menu-wide.col-4.col-6-mobile.columns.mobile
                   .navbar-item: a(href='/') Home
-                  .navbar-item: a(href='/posts/all') Post
+                  .navbar-item: a(href='/posts/') Projects
                   .navbar-item: a(href='/about') About
         .columns.centered
             main.col-6.col-5-tablet.col-4-desktop
@@ -67,6 +71,11 @@ script.
             let nav = $('.curtain .navbar');
             let top = nav.offset().top
             $(window).on('scroll', function () {
+              if ($(this).scrollTop() > 0) {
+                $('.scroll').hide()
+              } else {
+                $('.scroll').show()
+              }
               let distance = top - $(this).scrollTop();
               if (distance <= 0 && !fixed) {
                 fixed = true;

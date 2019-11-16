@@ -16,4 +16,9 @@ router.get('/', async ctx => {
   await ctx.render('index', { posts: posts, page, pageTotal })
 })
 
+router.get('about', async ctx => {
+  console.log('Going to about page')
+  await ctx.render('about')
+})
+
 module.exports = router

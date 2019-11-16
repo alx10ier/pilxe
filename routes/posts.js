@@ -6,7 +6,17 @@ const PostCategory = require('../models/PostCategory')
 const Post = require('../models/Post')
 
 router.get('/', async ctx => {
-  await ctx.render('posts/all')
+  const limit = 10
+  const page = ctx.query.page || 1
+  const posts = await Post
+    .find()
+    .populate('category')
+    .limit(limit)
+    .skip((page - 1) * limit)
+    .sort({ timestamp: -1, title: -1 })
+  const count = await Post.countDocuments({})
+  const pageTotal = Math.ceil(count / limit )
+  await ctx.render('posts/all', { posts: posts, page, pageTotal })
 })
 
 router.get('/new', ensure, async ctx => {

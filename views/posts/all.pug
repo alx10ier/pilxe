@@ -10,56 +10,43 @@ html
     block javascripts
       script(src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous")
   body
-    if page == 1
-      header.curtain
-        h1.title Pilxe
-        h2.subtitle Author
-        .wrapper(style='height:4rem; width:100%; margin-top: 1rem;')
-          nav.navbar.mobile
-            .navbar-brand.col-1.hidden-for-mobile.invisible
-              span Pilxe
-            .navbar-menu.col-4.col-6-mobile.columns.mobile
-              .navbar-item: a Home
-              .navbar-item: a Post
-              .navbar-item: a About
-    else
       nav.navbar.mobile.sticky-top
         .navbar-brand.col-1.hidden-for-mobile
-          span Pilxe
+          span Aki
         .navbar-menu.navbar-menu-wide.col-4.col-6-mobile.columns.mobile
-          .navbar-item: a Home
-          .navbar-item: a Post
-          .navbar-item: a About
-    .columns.centered
-      main.col-5
-        if posts.length
-          .post-tiles
-            each post in posts
-              article.post-tile
-                h1.title: a(href='/posts/' + post.id)=post.title
-                .information
-                  - date = new Date(post.timestamp)
-                  .time= date.toLocaleString('en-us', { weekday: 'short', month: 'short', day: '2-digit', year: 'numeric' })
-                  .category: a=post.category.name
-                .content
-                  | !{post.abbr}
-                .continue: a(href='/posts/' + post.id) continue...
-                  i.fas.fa-angle-right
-        else
-          div Nothing here...
-        if pageTotal > 1
-          .centered
-            ul.pagination
-              if page != 1
-                li.arrow: a(href='?page=' + (parseInt(page) - 1)) &laquo;
-              - for(let i = 1; i <= pageTotal; i++) {
-              if i == page
-                li(class = 'active'): a(href='?page=' + i)= i
-              else
-                li: a(href='?page=' + i)= i
-              - }
-              if page != pageTotal
-                li.arrow: a(href='?page=' + (parseInt(page) + 1)) &raquo;
+          .navbar-item: a(href='/') Home
+          .navbar-item: a(href='/posts/') Projects
+          .navbar-item: a(href='/about') About
+      .columns.centered
+        main.col-5
+          if posts.length
+            .post-previews
+              each post in posts
+                article.post
+                    h1.title: a(href='/posts/' + post.id)=post.title
+                    .information
+                      - date = new Date(post.timestamp)
+                      .time= date.toLocaleString('en-us', { weekday: 'short', month: 'short', day: '2-digit', year: 'numeric' })
+                      .category: a=post.category.name
+                    .content
+                        | !{post.abbr}
+                    .continue: a(href='/posts/' + post.id) contine...
+                        i.fas.fa-angle-right
+          else
+            div Nothing here...
+          if pageTotal > 1
+            .centered
+              ul.pagination
+                if page != 1
+                  li.arrow: a(href='?page=' + (parseInt(page) - 1)) &laquo;
+                - for(let i = 1; i <= pageTotal; i++) {
+                if i == page
+                  li(class = 'active'): a(href='?page=' + i)= i
+                else
+                  li: a(href='?page=' + i)= i
+                - }
+                if page != pageTotal
+                  li.arrow: a(href='?page=' + (parseInt(page) + 1)) &raquo;
 
 script.
   $(function () {
