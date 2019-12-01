@@ -14,8 +14,8 @@ block content
                     a.edit-icon(href=post.id + '/edit') 编辑
                 h1.title= post.title
                 .information
-                    - date = new Date(post.timestamp)
-                    .time= date.toLocaleString('en-us', { weekday: 'short', month: 'short', day: '2-digit', year: 'numeric' })
+                    // - date = new Date(post.timestamp)
+                    // .time= date.toLocaleString('en-us', { weekday: 'short', month: 'short', day: '2-digit', year: 'numeric' })
                     .category: a= post.category.name
                 .content
                     | !{post.content}

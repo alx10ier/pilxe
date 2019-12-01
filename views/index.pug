@@ -42,12 +42,12 @@ html
                             article.post
                                 h1.title: a(href='/posts/' + post.id)=post.title
                                 .information
-                                  - date = new Date(post.timestamp)
-                                  .time= date.toLocaleString('en-us', { weekday: 'short', month: 'short', day: '2-digit', year: 'numeric' })
+                                  // - date = new Date(post.timestamp)
+                                  // .time= date.toLocaleString('en-us', { weekday: 'short', month: 'short', day: '2-digit', year: 'numeric' })
                                   .category: a=post.category.name
                                 .content
                                     | !{post.abbr}
-                                .continue: a(href='/posts/' + post.id) contine...
+                                .continue: a(href='/posts/' + post.id) Detail
                                     i.fas.fa-angle-right
                 else
                     div Nothing here...
