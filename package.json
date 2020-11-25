@@ -9,7 +9,7 @@
   "author": "Alxier",
   "dependencies": {
     "bcrypt": "^3.0.6",
-    "highlight.js": "^9.16.2",
+    "highlight.js": "^10.1.2",
     "koa": "^2.11.0",
     "koa-bodyparser": "^4.2.1",
     "koa-logger": "^3.2.1",
